@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="month" type="text" style="width: 200px; height: 15px" placeholder="xin mời bạn nhập số ngày">
+<input id="year" type="text" style="width: 200px; height: 15px" placeholder="xin mời bạn nhập số năm">
+<button type="button" onclick="doready()">Tính số ngày</button><br>
+<script>
+    function doready() {
+        let month = parseInt(document.getElementById('month').value);
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                alert("Tháng " + month + " Có 31 ngày");
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                alert("Tháng " + (month) + " Có 30 ngày");
+                break;
+            case 2:
+                let year = parseInt(document.getElementById('year').value);
+                if((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)){
+                    alert("Tháng " + month + " Năm " + year + " Có 29 ngày");
+                }else{
+                    alert("Tháng " + month + " Năm " + year + " Có 28 ngày");
+                }
+                break;
+            default:
+                alert("Nhập tháng không hợp lệ");
+        }
+    }
+</script>
+</body>
+</html>
